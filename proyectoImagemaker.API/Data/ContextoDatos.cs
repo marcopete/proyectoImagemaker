@@ -8,5 +8,6 @@ namespace proyectoImagemaker.API.Data
         public ContextoDatos(DbContextOptions<ContextoDatos> options) :  base(options){}
 
         public DbSet<Value> Values { get; set; }
+        public DbSet<Usuario> Usuarios { get; set; }
     }
 }
