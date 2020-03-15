@@ -1,0 +1,41 @@
+<nav class="navbar navbar-expand-md navbar-dark bg-dark">
+  <a class="navbar-brand" href="#">Titulo Proyecto</a>
+
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="#">Inicio</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Opcion 1</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link disabled" href="#">Opcion deshabilitada</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" (click)="deslogueado()">Logout</a>
+      </li>      
+    </ul>
+
+    <!-- Si la funcion logueado retorna token, muestra el div -->
+    <div *ngIf="logueado()" class="dropdown">
+      <a class="dropdown-toggle text-light">
+        Bienvenido usuario
+      </a>
+    
+      <div class="dropdown-menu">
+        <a class="dropdown-item" href="#"><i class="fa fa-user"></i>Editar perfil</a>
+        <div class="dropdown-divider"></div>
+        <a class="dropdown-item" href="#"><i class="fa fa-sign-out"></i>Logout</a>
+      </div>
+    </div>
+
+    <!-- Si la funcion logueado no retorna token (No se ha ejecutado o password erroneo), muestra el form -->
+    <form *ngIf="!logueado()" #formularioLogin="ngForm" class="form-inline my-2 my-lg-0" (ngSubmit)="login()">
+      <input class="form-control mr-sm-2" type="text" name="nombreusuario" placeholder="Nombre Usuario" required [(ngModel)]="modelo.nombreusuario">
+      <input class="form-control mr-sm-2" type="password" name="password" placeholder="Password" required [(ngModel)]="modelo.password">
+
+      <!-- [disabled]="!formularioLogin.valid" Botón de login deshabilitado hasta que los dos textos tengan contenido -->
+      <button [disabled]="!formularioLogin.valid" class="btn btn-success my-2 my-sm-0" type="submit">Login</button>
+    </form>
+
+</nav>
