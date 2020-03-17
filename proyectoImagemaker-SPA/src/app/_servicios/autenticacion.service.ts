@@ -22,4 +22,8 @@ login(modelo: any) {
     );
 }
 
+registrar(modelo: any) {
+  return this.http.post(this.urlBase + 'registrar', modelo);
+}
+
 }

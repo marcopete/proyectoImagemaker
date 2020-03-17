@@ -1,0 +1,27 @@
+<form #formularioRegistro="ngForm" (ngSubmit)="registrar()">
+  <h2 class="text-center text-primary">Sign Up</h2>
+  <hr>
+
+  <div class="form-group">
+    <input type="text" class="form-control" required name="nombreUsuario" [(ngModel)]="modelo.nombreUsuario" placeholder="NombreUsuario">
+  </div>
+
+  <!--Despliegue de combo para tabla values para Pais, ciudad etc  -->
+  <!-- <div class="form-group">
+    <label for="valorFavorito">Cual es tu valor favorito?</label>
+    <select class="form-control" id="valorFavorito">
+      <option *ngFor="let valor of valoresDeInicio" [value]="valor">{{valor.nombre}}</option>
+
+    </select>
+  </div> -->
+
+  <div class="form-group">
+    <input type="password" class="form-control" required name="password" [(ngModel)]="modelo.password" placeholder="Password">
+  </div>
+
+  <div class="form-group text-center">
+    <button class="btn btn-success" type="submit">Registrar</button>
+    <button class="btn btn-default" type="button" (click)="cancelar()" >Cancelar</button>
+  </div>
+  
+</form>

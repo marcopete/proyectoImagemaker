@@ -1,0 +1,20 @@
+<div class="container mt-5">
+  <div *ngIf="!modoRegistro" style="text-align: center">
+    <h1>A lo que vinimos</h1>
+    <p class="lead">Lo que puedes hacer... solo hay que registrarse!</p>
+    <div class="text-center">
+      <button class="btn btn-primary btn-lg mr-2" (click)="arrancaRegistro()">Registrarse</button>
+      <button class="btn btn-info btn-lg">ENTENDER MAS</button>
+    </div>
+  </div>
+
+  <div *ngIf="modoRegistro" class="container">
+    <div class="row justify-content-center">
+      <div class="col-4">
+        <!-- [valoresDeInicio]="valores" retorna contenido tabla values -->
+        <!-- <app-registro [valoresDeInicio]="valores" (cancelarRegistro)="modoCancelarRegistro($event)"></app-registro> -->
+        <app-registro (cancelarRegistro)="modoCancelarRegistro($event)"></app-registro>
+      </div>
+    </div>
+  </div>
+</div>

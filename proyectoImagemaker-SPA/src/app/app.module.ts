@@ -4,15 +4,17 @@ import {HttpClientModule} from '@angular/common/http';
 import {FormsModule} from '@angular/forms';
 
 import { AppComponent } from './app.component';
-import { ValueComponent } from './value/value.component';
 import { NavComponent } from './nav/nav.component';
 import { AutenticacionService } from './_servicios/autenticacion.service';
+import { InicioComponent } from './inicio/inicio.component';
+import { RegistroComponent } from './registro/registro.component';
 
 @NgModule({
    declarations: [
       AppComponent,
-      ValueComponent,
-      NavComponent
+      NavComponent,
+      InicioComponent,
+      RegistroComponent
    ],
    imports: [
       BrowserModule,
