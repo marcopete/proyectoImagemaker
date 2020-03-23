@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AutenticacionService } from '../_servicios/autenticacion.service';
 import { AlertifyService } from '../_servicios/alertify.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-nav',
@@ -10,7 +11,7 @@ import { AlertifyService } from '../_servicios/alertify.service';
 export class NavComponent implements OnInit {
   modelo: any = {};
 
-  constructor(public servicioAutenticacion: AutenticacionService, private servicioAlertify: AlertifyService) { }
+  constructor(public servicioAutenticacion: AutenticacionService, private servicioAlertify: AlertifyService, private rutero: Router) { }
 
   ngOnInit() {
     console.log(this.modelo);
@@ -20,7 +21,9 @@ export class NavComponent implements OnInit {
     this.servicioAutenticacion.login(this.modelo).subscribe(siguiente => {
       this.servicioAlertify.exito('Logueado exitosamente');
     }, error => {
-      this.servicioAlertify.error('Mal logueado');
+      this.servicioAlertify.error(error);
+    }, () => {
+      this.rutero.navigate(['/miembros']);
     });
   }
 
@@ -31,6 +34,7 @@ export class NavComponent implements OnInit {
   deslogueado() {
     localStorage.removeItem('token');
     this.servicioAlertify.mensaje('vuelve pronto');
+    this.rutero.navigate(['/inicio']);
   }
 
 }
